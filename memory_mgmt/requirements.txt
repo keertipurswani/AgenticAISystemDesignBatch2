@@ -11,3 +11,4 @@ sentence-transformers
 rank_bm25
 langchain_classic
 neo4j
+langgraph.checkpoint.sqlite
