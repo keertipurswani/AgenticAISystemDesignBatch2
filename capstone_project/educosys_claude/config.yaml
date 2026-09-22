@@ -1,0 +1,22 @@
+llm:
+ provider: openai        # openai | anthropic
+ model: gpt-4o
+
+embeddings:
+ provider: openai             
+ model: text-embedding-3-small
+
+chromadb:
+ persist_dir: .chromadb/
+ collection_name: codebase
+
+elasticsearch:
+ url: http://localhost:9200
+ index_name: codebase
+
+vector_store:
+ provider: qdrant
+
+qdrant:
+ collection_name: codebase
+
