@@ -1,0 +1,21 @@
+{
+ "mcp_servers": {
+   "github": {
+     "command": "npx",
+     "args": ["-y", "@modelcontextprotocol/server-github"],
+     "env": {
+       "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+     },
+     "transport": "stdio"
+   },
+   "filesystem": {
+       "command": "npx",
+       "args": [
+         "-y",
+         "@modelcontextprotocol/server-filesystem",
+         "${CWD}"
+       ],
+       "transport": "stdio"
+     }
+ }
+}

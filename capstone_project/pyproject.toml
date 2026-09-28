@@ -5,7 +5,7 @@ description = ""
 authors = [
     {name = "keertipurswani",email = "team@educosys.com"}
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.12,<4.0.0"
 dependencies = [
     "python-dotenv (>=1.2.3,<2.0.0)",
     "openai (>=3.17.0,<4.0.0)",
@@ -21,7 +21,8 @@ dependencies = [
     "tree-sitter-languages (==1.10.2)",
     "langchain-qdrant (>=1.1.0,<2.0.0) ; python_version >= \"3.12\" and python_full_version < \"4.0.0\"",
     "fastembed (>=0.8.1,<0.9.0)",
-    "langgraph-checkpoint-sqlite (>=3.1.1,<4.0.0)"
+    "langgraph-checkpoint-sqlite (>=3.1.1,<4.0.0)",
+    "langchain-mcp-adapters (>=0.3.2,<0.4.0)"
 ]
 
 
