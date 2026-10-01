@@ -15,6 +15,10 @@ from educosys_claude.agent.orchestrator import handle_query
 from educosys_claude.memory.session import get_current_session, new_session, switch_session
 from educosys_claude.observability.logger import get_logger
 
+from educosys_claude.tasks.orchestrator import handle_plan_command
+from educosys_claude.tasks.status import show_task_status
+
+
 
 load_dotenv(Path(__file__).parent.parent / ".env")
 
@@ -78,6 +82,12 @@ async def _run_async():
                console.print(f"[dim]Searching for: {question}...[/dim]")
                response = await handle_query(agent, question, session_id)
                console.print(response)
+           elif user_input.startswith("/plan "):
+               goal = user_input.removeprefix("/plan ").strip()
+               logger.info(f"Plan command received: {goal}")
+               await handle_plan_command(goal)
+           elif user_input == "/task_status":
+               show_task_status()
            elif user_input == "/new_session":
                session_id = new_session()
                console.print(f"[green]New session started: {session_id}[/green]")
@@ -98,8 +108,8 @@ async def _run_async():
                console.print("  [bold]/new_session[/bold]             — start a fresh conversation")
                console.print("  [bold]/switch <session_id>[/bold]     — resume a past session")
                console.print("  [bold]/session[/bold]                 — show current session id")
-
-
+               console.print("  [bold]/plan <goal>[/bold] — generate and execute a plan")
+               console.print("  [bold]/task_status[/bold] — show task progress for active project")
 
 
 def run():
